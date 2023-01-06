@@ -10,7 +10,7 @@ type Props = {
 const Iphone = ({ url, isLockedScreen = false }: Props) => {
 	return (
 		<>
-			{/*<div className="iphone"></div>*/}
+			<div className="iphone"></div>
 			<div
 				className="iphone__screen"
 				style={ {

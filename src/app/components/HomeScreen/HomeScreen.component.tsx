@@ -6,6 +6,7 @@ import { Pagination } from "swiper";
 // import "swiper/components/pagination/pagination.min.css";
 import "swiper/scss";
 import 'swiper/scss/pagination';
+import HomeScreenApplication from "app/components/HomeScreen/HomeScreenApplication.component";
 const HomeScreen = () => {
 
 	return (
@@ -16,10 +17,154 @@ const HomeScreen = () => {
 			slidesPerView={1}
 			onSlideChange={() => console.log('slide change')}
 			onSwiper={(swiper) => console.log(swiper)}
-			pagination={{ clickable: true }}
+			pagination={{
+				bulletActiveClass: "home-screen__pagination-dot--active",
+				renderBullet: () => `<div class="home-screen__pagination-dot swiper-pagination-bullet"></div>`
+			}}
 		>
 			<SwiperSlide>
-				slide 1
+				<div className="home-screen__applications-wrapper">
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+					<HomeScreenApplication
+						name="Instagram"
+						urlTo="/instagram"
+						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
+					/>
+				</div>
 			</SwiperSlide>
 			<SwiperSlide>
 				slide 2

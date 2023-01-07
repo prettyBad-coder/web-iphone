@@ -2,4 +2,40 @@
 	width: 100%;
 	height: calc(100% - $notch-height);
 	margin: 0;
+
+	&__pagination-dot {
+
+		&--active {
+			background-color: white !important;
+		}
+	}
+
+	&__applications-wrapper {
+		display: grid;
+		margin: 30px 10px;
+		gap: 5px;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	}
+
+	&__application {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__application-image {
+		width: 45px;
+		height: 45px;
+		border-radius: 10px;
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+
+	&__application-name {
+		font-weight: 300;
+		font-size: 10px;
+		text-align: center;
+		color: white;
+	}
 }

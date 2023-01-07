@@ -57,5 +57,15 @@
 		background-color: white;
 		left: 50%;
 		transform: translate(-50%);
+
+		&::after {
+			content: "";
+			display: block;
+			height: 25px;
+			width: 200px;
+			position: absolute;
+			left: -35px;
+			top: -6px;
+		}
 	}
 }

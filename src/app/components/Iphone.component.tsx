@@ -4,10 +4,10 @@ import { Link, Outlet } from "react-router-dom";
 
 type Props = {
 	isLockedScreen?: boolean
-	url?: string
+	urlTo?: string
 }
 
-const Iphone = ({ url, isLockedScreen = false }: Props) => {
+const Iphone = ({ urlTo, isLockedScreen = false }: Props) => {
 	return (
 		<>
 			<div className="iphone"></div>
@@ -45,11 +45,11 @@ const Iphone = ({ url, isLockedScreen = false }: Props) => {
 				</div>
 				<Outlet/>
 				{
-					url === undefined
+					urlTo === undefined
 						?
 						<div className="iphone__bottom-line cursor-pointer"></div>
 						:
-						<Link className="iphone__bottom-line cursor-pointer" to={ url }></Link>
+						<Link className="iphone__bottom-line cursor-pointer" to={ urlTo }></Link>
 				}
 			</div>
 		</>

@@ -1,4 +1,3 @@
-
 type Props = {
 	number: number
 	onPasswordChange: (number: number) => void
@@ -10,7 +9,6 @@ const LockedScreenPasswordNumberButton = (props: Props) => {
 		number,
 		onPasswordChange
 	} = props;
-
 	return (
 		<div
 			className="locked-screen-password__number-button cursor-pointer"

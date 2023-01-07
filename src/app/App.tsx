@@ -2,6 +2,7 @@ import Iphone from "app/components/Iphone.component";
 import { Route, Routes } from "react-router-dom";
 import LockedScreen from "app/components/LockedScreen.component";
 import LockedScreenPassword from "app/components/LockedScreen/LockedScreenPassword.component";
+import HomeScreen from "app/components/HomeScreen/HomeScreen.component";
 
 function App() {
 	return (
@@ -15,7 +16,7 @@ function App() {
 			</Route>
 			{/*<Route element={ <Iphone urlTo={ "/home" }/> }>*/}
 			<Route element={ <Iphone urlTo={ "/" }/> }>
-				<Route path="/home" element={ <div style={{ color: "white" }}>HOME</div> }/>
+				<Route path="/home" element={ <HomeScreen/> }/>
 				<Route path="*" element={ <div>404</div> }/>
 			</Route>
 		</Routes>

@@ -24,7 +24,7 @@ const Iphone = ({ urlTo, isLockedScreen = false }: Props) => {
 			>
 				<div className="iphone__notch-items">
 					<div className="iphone__notch-items-left">
-						PLAY
+						21:37
 					</div>
 					<div className="iphone__notch-items-right">
 						<FontAwesomeIcon

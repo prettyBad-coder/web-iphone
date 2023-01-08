@@ -7,9 +7,9 @@ const InstagramPosts = () => {
 		<div className="instagram__posts-wrapper">
 			<Swiper
 				spaceBetween={ 10 }
+				className="instagram__posts-slider"
 				slidesPerView={ 1 }
 				direction="vertical"
-				// freeMode
 			>
 				<SwiperSlide className="instagram-post__post-slide">
 					<InstagramPost

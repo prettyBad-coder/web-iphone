@@ -8,7 +8,7 @@ const InstagramHeader = () => {
 
 	return (
 		<div className="instagram-header">
-			{/*<img src={ instagramLogo } className="instagram-header__logo"/>*/}
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2560px-Instagram_logo.svg.png" className="instagram-header__logo"/>
 			<div className="instagram-header__icons-wrapper">
 				<div className="cursor-pointer">
 					<FontAwesomeIcon

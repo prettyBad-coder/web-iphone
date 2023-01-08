@@ -4,7 +4,7 @@
 	gap: 5px;
 
 	&__post-slide {
-		height: max-content;
+		height: 377px !important;
 	}
 
 	&__header {
@@ -35,17 +35,17 @@
 	}
 
 	&__post-image {
-		height: 150px;
-		background-size: 100%;
+		height: 175px;
+		background-size: cover;
 		background-position: center;
-
+		background-repeat: no-repeat;
 	}
 
 	&__footer {
 		display: flex;
 		flex-direction: column;
 		align-items: start;
-		padding: 0 10px;
+		padding: 3px 10px 0 10px;
 	}
 
 	&__footer-top {
@@ -90,7 +90,7 @@
 	}
 
 	&__comments {
-
+		font-size: 11px;
 	}
 
 	&__all-comments {
@@ -101,7 +101,6 @@
 
 	&__comment {
 		display: flex;
-		font-size: 12px;
 		align-items: start;
 		gap: 5px;
 		margin-top: 5px;

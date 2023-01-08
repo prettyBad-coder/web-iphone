@@ -1,0 +1,34 @@
+.instagram-footer {
+	display: flex;
+	height: 80px;
+	background-color: black;
+	align-items: start;
+	justify-content: space-between;
+	padding: 10px 10px 0 10px;
+
+	&__icon {
+		position: relative;
+
+		&--active:after{
+			content: "";
+			display: block;
+			height: 4px;
+			width: 4px;
+			position: absolute;
+			bottom: -7px;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: red;
+			border-radius: 50%;
+		}
+	}
+
+	&__profile-image {
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		background-image: url("https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg");
+		background-position: center;
+		background-size: 100%;
+	}
+}

@@ -1,0 +1,117 @@
+.instagram-post {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	&__post-slide {
+		height: max-content;
+	}
+
+	&__header {
+		display: flex;
+		gap: 10px;
+		padding: 0 10px;
+	}
+
+	&__profile-image {
+		height: 30px;
+		width: 30px;
+		background-position: center;
+		background-size: 100%;
+		border-radius: 50%;
+	}
+
+	&__name-and-localization {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__name {
+		font-size: 12px;
+	}
+
+	&__localization {
+		font-size: 10px;
+	}
+
+	&__post-image {
+		height: 150px;
+		background-size: 100%;
+		background-position: center;
+
+	}
+
+	&__footer {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		padding: 0 10px;
+	}
+
+	&__footer-top {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	&__footer-icons-wrapper {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__footer-save-post {
+
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+	}
+
+	&__likes {
+		font-size: 12px;
+		margin-top: 5px;
+	}
+
+	&__title-wrapper {
+		font-size: 12px;
+		display: flex;
+		margin-top: 5px;
+	}
+
+	&__title-name {
+
+	}
+
+	&__title {
+		font-weight: 200;
+		margin-left: 5px;
+	}
+
+	&__comments {
+
+	}
+
+	&__all-comments {
+		font-size: 12px;
+		color: rgb(70, 70, 70);
+		margin-top: 5px;
+	}
+
+	&__comment {
+		display: flex;
+		font-size: 12px;
+		align-items: start;
+		gap: 5px;
+		margin-top: 5px;
+	}
+
+	&__comment-user-name {
+		white-space: nowrap;
+	}
+
+	&__comment-content {
+		font-weight: 200;
+	}
+}

@@ -1,0 +1,52 @@
+.instagram-story {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+
+	&__image-wrapper {
+		position: relative;
+		height: 44px;
+		width: 44px;
+		top: -2px;
+		left: -2px;
+		border-radius: 50%;
+
+		&--active {
+			background: rgb(253,188,123);
+			background: linear-gradient(45deg, rgba(253,188,123,1) 0%, rgba(191,43,169,1) 46%, rgba(40,90,235,1) 90%);
+		}
+	}
+
+	&__image {
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		height: calc(100% - 4px);
+		width: calc(100% - 4px);
+		border-radius: 50%;
+		background-size: 100%;
+		background-position: center;
+	}
+
+	&__image-plus-icon {
+		position: absolute;
+		right: -2px;
+		bottom: 0;
+		border-radius: 50%;
+		background-color: #3797f0;
+		height: 15px;
+		width: 15px;
+		display: grid;
+		place-items: center;
+		border: 1px solid black;
+	}
+
+	&__name {
+		text-align: center;
+		font-weight: 300;
+		color: white;
+		font-size: 10px;
+		white-space: nowrap;
+	}
+}

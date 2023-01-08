@@ -1,0 +1,19 @@
+.instagram {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: black;
+	height: calc(100% - ($notch-height / 2));
+	color: white;
+
+	&__stories-slider {
+		padding-top: 15px !important;
+		padding-left: 25px !important;
+	}
+
+	&__posts-wrapper {
+		max-height: 377px;
+		height: 377px;
+		padding-top: 15px;
+	}
+}

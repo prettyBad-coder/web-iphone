@@ -1,56 +1,70 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faSquarePlus, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import InstagramStory from "app/components/Instagram/InstagramStory.component";
+import InstagramPost from "app/components/Instagram/InstagramPost.component";
+import InstagramHeader from "app/components/Instagram/InstagramHeader.component";
+import InstagramFooter from "app/components/Instagram/InstagramFooter.component";
+import { SwiperSlide, Swiper } from "swiper/react";
+import "swiper/scss";
+import { Outlet } from "react-router-dom";
 
 const Instagram = () =>
 	<div className="instagram">
-		<div className="instagram__header">
-			<div className="instagram__header-logo">
-			</div>
-			<div className="instagram__header-plus">
-				<FontAwesomeIcon
-					icon={ faSquarePlus }
-					color="white"
-					size="xs"
-				/>
-			</div>
-			<div className="instagram__header-liked">
-				<FontAwesomeIcon
-					icon={ faHeart }
-					color="white"
-					size="xs"
-				/>
-			</div>
-			<div className="instagram__header-dm">
-				<FontAwesomeIcon
-					icon={ faPaperPlane }
-					color="white"
-					size="xs"
-				/>
+		<div>
+			<InstagramHeader/>
+			<div>
+				<Swiper
+					className="instagram__stories-slider"
+					spaceBetween={ 50 }
+					slidesPerView={ 5 }
+				>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+							isActive={ false }
+							plusIcon
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+						/>
+					</SwiperSlide>
+					<SwiperSlide>
+						<InstagramStory
+							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
+							name="DJ masa"
+						/>
+					</SwiperSlide>
+				</Swiper>
 			</div>
 		</div>
-		<div className="instagram__stories-wrapper">
-
-		</div>
-		<div className="instagram__content">
-
-		</div>
-		<div className="instagram__footer">
-			<div className="instagram__footer-home">
-
-			</div>
-			<div className="instagram__footer-search">
-
-			</div>
-			<div className="instagram__footer-reels">
-
-			</div>
-			<div className="instagram__footer-shop">
-
-			</div>
-			<div className="instagram__footer-profile">
-
-			</div>
-		</div>
+		<Outlet/>
+		<InstagramFooter/>
 	</div>
 
 export default Instagram;

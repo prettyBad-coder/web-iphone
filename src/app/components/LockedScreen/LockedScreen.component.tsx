@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb, faLock, faCamera } from "@fortawesome/free-solid-svg-icons";
+import Date from "app/components/Utils/Date.component";
 
 const LockedScreen = () => {
 	return (
@@ -13,10 +14,10 @@ const LockedScreen = () => {
 					/>
 				</div>
 				<div className="locked-screen__time">
-					18:20
+					<Date isTime/>
 				</div>
 				<div className="locked-screen__date">
-					Friday, 6 January
+					<Date/>
 				</div>
 			</div>
 			<div className="locked-screen__footer">

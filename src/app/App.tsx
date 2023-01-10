@@ -1,10 +1,9 @@
-import Iphone from "app/components/Iphone.component";
+import Iphone from "app/Layouts/Iphone.layout";
 import { Route, Routes } from "react-router-dom";
-import LockedScreen from "app/components/LockedScreen.component";
+import LockedScreen from "app/components/LockedScreen/LockedScreen.component";
 import LockedScreenPassword from "app/components/LockedScreen/LockedScreenPassword.component";
 import HomeScreen from "app/components/HomeScreen/HomeScreen.component";
-import Instagram from "app/components/Instagram/Instagram.component";
-import InstagramPost from "app/components/Instagram/InstagramPost.component";
+import Instagram from "app/Layouts/Instagram.layout";
 import InstagramPosts from "app/components/Instagram/InstagramPosts.component";
 import InstagramReels from "app/components/Instagram/InstagramReels.component";
 import InstagramShop from "app/components/Instagram/InstagramShop.component";

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBattery, faSignal, faWifi } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
+import Date from "app/components/Utils/Date.component";
 
 type Props = {
 	isLockedScreen?: boolean
@@ -24,7 +25,7 @@ const Iphone = ({ urlTo, isLockedScreen = false }: Props) => {
 			>
 				<div className="iphone__notch-items">
 					<div className="iphone__notch-items-left">
-						21:37
+						<Date isTime/>
 					</div>
 					<div className="iphone__notch-items-right">
 						<FontAwesomeIcon

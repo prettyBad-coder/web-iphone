@@ -11,13 +11,12 @@
 		padding-left: 25px !important;
 	}
 
-	&__posts-wrapper {
-		max-height: 377px;
-		height: 377px;
-		padding-top: 15px;
-	}
-
 	&__posts-slider {
 		max-height: 377px;
+	}
+
+	&__page-wrapper {
+		padding-top: 15px;
+		height: $instagram-screen-height;
 	}
 }

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const InstagramPosts = () => {
 	return (
-		<div className="instagram__posts-wrapper">
+		<div>
 			<Swiper
 				spaceBetween={ 10 }
 				className="instagram__posts-slider"

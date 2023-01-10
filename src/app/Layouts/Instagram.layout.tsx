@@ -62,7 +62,9 @@ const Instagram = () =>
 				</Swiper>
 			</div>
 		</div>
-		<Outlet/>
+		<div className="instagram__page-wrapper">
+			<Outlet/>
+		</div>
 		<InstagramFooter/>
 	</div>
 

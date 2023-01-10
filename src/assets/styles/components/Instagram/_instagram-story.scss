@@ -3,6 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 2px;
+	text-decoration: none;
 
 	&__image-wrapper {
 		position: relative;
@@ -25,8 +26,9 @@
 		height: calc(100% - 4px);
 		width: calc(100% - 4px);
 		border-radius: 50%;
-		background-size: 100%;
+		background-size: cover;
 		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	&__image-plus-icon {
@@ -48,5 +50,8 @@
 		color: white;
 		font-size: 10px;
 		white-space: nowrap;
+		max-width: 52px;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }

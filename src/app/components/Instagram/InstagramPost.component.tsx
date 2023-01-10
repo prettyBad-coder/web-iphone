@@ -1,6 +1,7 @@
-import InstagramPostComment, { Comment } from "app/components/Instagram/InstagramPostComment.component";
+import InstagramPostComment from "app/components/Instagram/InstagramPostComment.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faComment, faHeart, faHouse, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faComment, faHeart, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { Comment } from "app/types";
 // import { faBookmark as RegularBookmark } from "@fortawesome/free-regular-svg-icons";
 
 type Props = {

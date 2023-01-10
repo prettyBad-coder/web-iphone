@@ -4,6 +4,8 @@ import InstagramFooter from "app/components/Instagram/InstagramFooter.component"
 import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/scss";
 import { Outlet } from "react-router-dom";
+import stories from "app/data/intagram-stories.json";
+import { InstagramStoryType } from "app/types";
 
 const Instagram = () =>
 	<div className="instagram">
@@ -15,50 +17,13 @@ const Instagram = () =>
 					spaceBetween={ 50 }
 					slidesPerView={ 5 }
 				>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-							isActive={ false }
-							plusIcon
-						/>
-					</SwiperSlide>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-						/>
-					</SwiperSlide>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-						/>
-					</SwiperSlide>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-						/>
-					</SwiperSlide>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-						/>
-					</SwiperSlide>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-						/>
-					</SwiperSlide>
-					<SwiperSlide>
-						<InstagramStory
-							backgroundImageURL="https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
-							name="DJ masa"
-						/>
-					</SwiperSlide>
+					{
+						stories.map(story =>
+							<SwiperSlide>
+								<InstagramStory story={ story as unknown as InstagramStoryType }/>
+							</SwiperSlide>
+						)
+					}
 				</Swiper>
 			</div>
 		</div>

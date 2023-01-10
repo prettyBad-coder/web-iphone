@@ -15,8 +15,6 @@ const HomeScreen = () => {
 			modules={ [ Pagination ] }
 			spaceBetween={50}
 			slidesPerView={1}
-			onSlideChange={() => console.log('slide change')}
-			onSwiper={(swiper) => console.log(swiper)}
 			pagination={{
 				bulletActiveClass: "home-screen__pagination-dot--active",
 				renderBullet: () => `<div class="home-screen__pagination-dot swiper-pagination-bullet"></div>`

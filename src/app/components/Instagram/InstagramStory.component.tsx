@@ -1,25 +1,32 @@
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { InstagramStoryType } from "app/types";
+import InstagramStoryWrapper from "assets/styles/components/Instagram/InstagramStoryWrapper.component";
 
 type Props = {
-	backgroundImageURL: string
-	name: string
-	plusIcon?: boolean
-	isActive?: boolean
+	story: InstagramStoryType
 };
 
 const InstagramStory = (props: Props) => {
 
 	const {
-		backgroundImageURL,
-		name,
-		plusIcon = false,
-		isActive = true,
+		story: {
+			id,
+			backgroundImageURL,
+			name,
+			plusIcon = false,
+			images,
+		}
 	} = props;
 
+	const isActive = images.length !== 0;
+
 	return (
-		<div className="instagram-story cursor-pointer">
+		<InstagramStoryWrapper
+			isActive={ isActive }
+			storyId={ id }
+		>
 			<div className={ classNames("instagram-story__image-wrapper", { "instagram-story__image-wrapper--active": isActive }) }>
 				<div
 					className="instagram-story__image"
@@ -41,7 +48,7 @@ const InstagramStory = (props: Props) => {
 			<div className="instagram-story__name">
 				{ name }
 			</div>
-		</div>
+		</InstagramStoryWrapper>
 	)
 }
 

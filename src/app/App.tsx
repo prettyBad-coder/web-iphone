@@ -9,6 +9,7 @@ import InstagramReels from "app/components/Instagram/InstagramReels.component";
 import InstagramShop from "app/components/Instagram/InstagramShop.component";
 import InstagramProfile from "app/components/Instagram/InstagramProfile.component";
 import InstagramSearch from "app/components/Instagram/InstagramSearch.component";
+import InstagramStoryScreen from "app/components/Instagram/InstagramStoryScreen.component";
 
 function App() {
 	return (
@@ -24,12 +25,15 @@ function App() {
 			{/* Home screen */}
 			<Route element={ <Iphone urlTo={ "/home" }/> }>
 				<Route path="/home" element={ <HomeScreen/> }/>
-				<Route path="/instagram" element={ <Instagram/> }>
-					<Route index element={ <InstagramPosts/> }/>
-					<Route path="search" element={ <InstagramSearch/> }/>
-					<Route path="reels" element={ <InstagramReels/> }/>
-					<Route path="shop" element={ <InstagramShop/> }/>
-					<Route path="profile" element={ <InstagramProfile/> }/>
+				<Route path="/instagram">
+					<Route element={ <Instagram/> }>
+						<Route index element={ <InstagramPosts/> }/>
+						<Route path="search" element={ <InstagramSearch/> }/>
+						<Route path="reels" element={ <InstagramReels/> }/>
+						<Route path="shop" element={ <InstagramShop/> }/>
+						<Route path="profile" element={ <InstagramProfile/> }/>
+					</Route>
+					<Route path="story/:storyId" element={ <InstagramStoryScreen/> }/>
 				</Route>
 				<Route path="*" element={ <div>404</div> }/>
 			</Route>

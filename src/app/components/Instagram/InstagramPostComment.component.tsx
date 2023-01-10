@@ -1,8 +1,4 @@
-export type Comment = {
-	id: number
-	userName: string
-	content: string
-}
+import { Comment } from "app/types";
 
 type Props = {
 	comment: Comment

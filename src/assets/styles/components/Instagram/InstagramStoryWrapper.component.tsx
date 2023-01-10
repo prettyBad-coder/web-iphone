@@ -1,23 +1,23 @@
 import { PropsWithChildren } from "react";
-import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 type Props = {
 	isActive: boolean
 	storyId: number
+	className?: string
 }
 
-const InstagramStoryWrapper = ({ isActive, storyId, children }: PropsWithChildren<Props>) =>
+const InstagramStoryWrapper = ({ isActive, storyId, children, className = "" }: PropsWithChildren<Props>) =>
 	isActive
 		?
 		<Link
 			to={ `/instagram/story/${ storyId }` }
-			className={ classNames("instagram-story", { "cursor-pointer": isActive }) }
+			className={ className }
 		>
 			{ children }
 		</Link>
 		:
-		<div className="instagram-story">
+		<div className={ className }>
 			{ children }
 		</div>
 

@@ -26,6 +26,7 @@ const InstagramStory = (props: Props) => {
 		<InstagramStoryWrapper
 			isActive={ isActive }
 			storyId={ id }
+			className={ classNames("instagram-story", { "cursor-pointer": isActive || plusIcon }) }
 		>
 			<div className={ classNames("instagram-story__image-wrapper", { "instagram-story__image-wrapper--active": isActive }) }>
 				<div

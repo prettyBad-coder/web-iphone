@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "userName": "Jakiś_podróżnik",
+        "imageURL": "https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg",
+        "likesCount": 152,
+        "profileImageURL": "https://www.zawodowypodroznik.pl/wp-content/uploads/2019/10/karol-lewandowski-kurs-zawodowy-podroznik-1.jpg",
+        "localization": "Fajne miejsce gdzieś",
+        "title": "Lubie podróże małe i duże",
+        "comments": [
+            {
+                "id": 1,
+                "userName": "user",
+                "content": "Ładny widok wariacie"
+            },
+            {
+                "id": 2,
+                "userName": "Miłośnk kotków",
+                "content": "Musze tam zabrać swoje kocury!"
+            },
+            {
+                "id": 3,
+                "userName": "Siema eniu",
+                "content": "Witaj eniu!"
+            },
+            {
+                "id": 4,
+                "userName": "Syndiabla69pl",
+                "content": "Silik dobry robie"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "userName": "Dj mati",
+        "imageURL": "https://seciki.pl/uploads/posts/2016-02/1455534411_mati.jpg",
+        "likesCount": "3674",
+        "profileImageURL": "https://yt3.ggpht.com/xrVHaWpUfpiKamdz80xbM78MU0CeTSVPIj1_bSULpW0be9wep_4_QPcRVzYsMyypciwkUWHfnQ=s900-c-k-c0x00ffffff-no-rj",
+        "localization": "Prozak",
+        "title": "Muze robie",
+        "comments": [
+            {
+                "id": 5,
+                "userName": "Alan",
+                "content": "Rozbiłem clio rs"
+            },
+            {
+                "id": 6,
+                "userName": "Paaffcio2000",
+                "content": "Nieźle jeździsz po winelu +1"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "userName": "Narciarz21",
+        "imageURL": "https://www.worldisbeautiful.eu/up_files/194_04-wloskie-alpy.jpg",
+        "likesCount": "1",
+        "profileImageURL": "https://media.gettyimages.com/id/625283442/photo/man-with-skiing-goggles-and-reflections.jpg?s=612x612&w=gi&k=20&c=-KMRbm5XWojkkERowRW27KMrqWaSCpUC2QX_duBjSLk=",
+        "localization": "Alpy - Włochy",
+        "title": "Śliczny widok",
+        "comments": []
+    },
+    {
+        "id": 4,
+        "userName": "Skater_2115",
+        "imageURL": "https://techramps.com/skatepark-w-skawinie,eeadb,a,gaa.jpg",
+        "likesCount": "2115",
+        "profileImageURL": "https://a.allegroimg.com/original/11a2d3/185235d4493184eb1928239a1a9b/DESKOROLKA-Kompletna-Klasyczna-SKATEBOARD-do-100kg",
+        "localization": "Skatepark Skawina",
+        "title": "Niezłe triki",
+        "comments": [
+            {
+                "id": 7,
+                "userName": "Zgredek",
+                "content": "\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25"
+            }
+        ]
+    }
+]

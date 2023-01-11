@@ -1,9 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import stories from "app/data/intagram-stories.json";
-import { InstagramStoryType, Nullable } from "app/types";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 
 type Props = {
 	single?: boolean
@@ -30,7 +28,7 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 		}
 		const currentStoryIndexInActiveStories = activeStories.findIndex(story => +story.id === +currentStory.id);
 		navigate(`/instagram/story/${ activeStories[ currentStoryIndexInActiveStories + 1 ].id }`);
-	}
+	};
 
 	const onPrevStory = () => {
 		if (currentStory === null || single) return;
@@ -40,8 +38,7 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 		}
 		const currentStoryIndexInActiveStories = activeStories.findIndex(story => +story.id === +currentStory.id);
 		navigate(`/instagram/story/${ activeStories[ currentStoryIndexInActiveStories - 1 ].id }`);
-	}
-
+	};
 
 	return (
 		<>
@@ -49,37 +46,37 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 				currentStory !== null
 					&&
 					<div className="instagram-story-screen">
-                        <div
-                            className="instagram-story-screen__content"
-                            style={ { backgroundImage: `url(${ currentStory.images[ 0 ] })` } }
-                        >
+						<div
+							className="instagram-story-screen__content"
+							style={ { backgroundImage: `url(${ currentStory.images[ 0 ] })` } }
+						>
 							<div className="instagram-story-screen__left-click" onClick={ onPrevStory }></div>
-                            <div className="instagram-story-screen__right-click" onClick={ onNextStory }></div>
-                            <div className="instagram-story-screen__header">
-                                <div className="instagram-story-screen__time-line"></div>
-                                <div className="instagram-story-screen__header-body">
-                                    <div className="instagram-story-screen__header-user-data">
-                                        <div
+							<div className="instagram-story-screen__right-click" onClick={ onNextStory }></div>
+							<div className="instagram-story-screen__header">
+								<div className="instagram-story-screen__time-line"></div>
+								<div className="instagram-story-screen__header-body">
+									<div className="instagram-story-screen__header-user-data">
+										<div
 											className="instagram-story-screen__user-image"
 											style={ { backgroundImage: `url(${ currentStory.backgroundImageURL })` } }
 										></div>
-                                        <div className="instagram-story-screen__user-name">
-											{  currentStory.name }
-                                        </div>
-                                    </div>
-                                    <FontAwesomeIcon
-                                        icon={ faXmark }
-                                        color="white"
+										<div className="instagram-story-screen__user-name">
+											{ currentStory.name }
+										</div>
+									</div>
+									<FontAwesomeIcon
+										icon={ faXmark }
+										color="white"
 										onClick={ () => navigate("/instagram") }
 										className="cursor-pointer"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+									/>
+								</div>
+							</div>
+						</div>
 					</div>
 			}
 		</>
-	)
-}
+	);
+};
 
 export default InstagramStoryScreen;

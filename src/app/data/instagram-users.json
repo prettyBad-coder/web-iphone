@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "userName": "Narciarz21",
+        "profilePicture": "https://media.gettyimages.com/id/625283442/photo/man-with-skiing-goggles-and-reflections.jpg?s=612x612&w=gi&k=20&c=-KMRbm5XWojkkERowRW27KMrqWaSCpUC2QX_duBjSLk=",
+        "postsIds": [ 3 ],
+        "storyId": 2
+    },
+    {
+        "id": 2,
+        "userName": "Dj mati",
+        "profilePicture": "https://yt3.ggpht.com/xrVHaWpUfpiKamdz80xbM78MU0CeTSVPIj1_bSULpW0be9wep_4_QPcRVzYsMyypciwkUWHfnQ=s900-c-k-c0x00ffffff-no-rj",
+        "postsIds": [ 2 ],
+        "storyId": 4
+    },
+    {
+        "id": 3,
+        "userName": "Jakiś_podróżnik",
+        "profilePicture": "https://www.zawodowypodroznik.pl/wp-content/uploads/2019/10/karol-lewandowski-kurs-zawodowy-podroznik-1.jpg",
+        "postsIds": [ 1 ],
+        "storyId": null
+    },
+    {
+        "id": 4,
+        "userName": "Skater 2115",
+        "profilePicture": "https://a.allegroimg.com/original/11a2d3/185235d4493184eb1928239a1a9b/DESKOROLKA-Kompletna-Klasyczna-SKATEBOARD-do-100kg",
+        "postsIds": [ 4 ],
+        "storyId": 5
+    }
+]

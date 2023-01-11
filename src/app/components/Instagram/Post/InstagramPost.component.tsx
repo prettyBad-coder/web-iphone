@@ -1,12 +1,12 @@
 import InstagramPostComment from "app/components/Instagram/Post/InstagramPostComment.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faComment, faHeart, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { Comment, InstagramPostType } from "app/types";
 // import { faBookmark as RegularBookmark } from "@fortawesome/free-regular-svg-icons";
 import users from "app/data/instagram-users.json"
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import { MouseEvent } from "react";
+import { InstagramPostType } from "app/types/instagram.types";
 
 type Props = {
 	post: InstagramPostType

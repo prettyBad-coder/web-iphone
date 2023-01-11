@@ -1,7 +1,7 @@
-import { Comment } from "app/types";
+import { InstagramCommentType } from "app/types/instagram.types";
 
 type Props = {
-	comment: Comment
+	comment: InstagramCommentType
 }
 
 const InstagramPostComment = ({ comment: { userName, content } }: Props) =>

@@ -1,5 +1,5 @@
-import InstagramHeader from "app/components/Instagram/InstagramHeader.component";
-import InstagramFooter from "app/components/Instagram/InstagramFooter.component";
+import InstagramHeader from "app/components/Instagram/Layout/InstagramHeader.component";
+import InstagramFooter from "app/components/Instagram/Layout/InstagramFooter.component";
 import "swiper/scss";
 import { Outlet } from "react-router-dom";
 

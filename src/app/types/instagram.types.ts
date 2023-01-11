@@ -1,9 +1,4 @@
-
-export type EnumDictionary<T extends string | symbol | number, U> = {
-	[K in T]: U;
-};
-
-export type Comment = {
+export type InstagramCommentType = {
 	id: number
 	userName: string
 	content: string
@@ -17,7 +12,7 @@ export type InstagramPostType = {
 	profileImageURL: string
 	localization: string
 	title: string
-	comments: Comment[]
+	comments: InstagramCommentType[]
 }
 
 export type InstagramStoryType = {
@@ -26,12 +21,4 @@ export type InstagramStoryType = {
 	name: string
 	plusIcon: string
 	images: string[]
-}
-
-export type Nullable<T> = T | null | undefined;
-
-export type AppType = {
-	name: string
-	urlTo: string
-	backgroundImageURL: string
 }

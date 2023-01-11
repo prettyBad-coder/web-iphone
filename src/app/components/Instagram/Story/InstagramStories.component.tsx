@@ -1,7 +1,7 @@
-import { InstagramStoryType } from "app/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import stories from "app/data/intagram-stories.json";
 import InstagramStory from "app/components/Instagram/Story/InstagramStory.component";
+import { InstagramStoryType } from "app/types/instagram.types";
 
 const InstagramStories = () =>
 	<div>

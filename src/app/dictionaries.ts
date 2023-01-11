@@ -1,5 +1,5 @@
-import { EnumDictionary } from "app/types";
 import { InstagramTab } from "app/enums";
+import { EnumDictionary } from "./types/util.types";
 
 export const instagramTabIndexUrlDictionary: EnumDictionary<InstagramTab, string> = {
 	[ InstagramTab.POSTS ]: "/instagram",

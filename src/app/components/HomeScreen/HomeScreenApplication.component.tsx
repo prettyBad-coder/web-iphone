@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AppType } from "app/types";
+import { AppType } from "app/types/util.types";
 
 type Props = {
 	app: AppType

@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { InstagramStoryType } from "app/types";
 import InstagramStoryWrapper from "app/components/Instagram/Story/InstagramStoryWrapper.component";
+import { InstagramStoryType } from "app/types/instagram.types";
 
 type Props = {
 	story: InstagramStoryType

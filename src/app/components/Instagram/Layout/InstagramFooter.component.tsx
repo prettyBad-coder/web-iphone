@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faFilm, faHouse, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import InstagramFooterItem from "app/components/Instagram/InstagramFooterItem.component";
+import InstagramFooterItem from "app/components/Instagram/Layout/InstagramFooterItem.component";
 import { InstagramTab } from "app/enums";
 
 const InstagramFooter = () => {

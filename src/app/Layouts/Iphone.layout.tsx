@@ -8,7 +8,7 @@ type Props = {
 	urlTo?: string
 }
 
-const Iphone = ({ urlTo, isLockedScreen = false }: Props) => {
+const IphoneLayout = ({ urlTo, isLockedScreen = false }: Props) => {
 	return (
 		<>
 			<div className="iphone"></div>
@@ -57,4 +57,4 @@ const Iphone = ({ urlTo, isLockedScreen = false }: Props) => {
 	)
 }
 
-export default Iphone;
+export default IphoneLayout;

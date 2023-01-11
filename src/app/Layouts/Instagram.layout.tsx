@@ -3,7 +3,7 @@ import InstagramFooter from "app/components/Instagram/InstagramFooter.component"
 import "swiper/scss";
 import { Outlet } from "react-router-dom";
 
-const Instagram = () =>
+const InstagramLayout = () =>
 	<div className="instagram">
 		<div>
 			<InstagramHeader/>
@@ -14,4 +14,4 @@ const Instagram = () =>
 		<InstagramFooter/>
 	</div>
 
-export default Instagram;
+export default InstagramLayout;

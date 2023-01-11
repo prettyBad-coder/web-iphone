@@ -29,3 +29,9 @@ export type InstagramStoryType = {
 }
 
 export type Nullable<T> = T | null | undefined;
+
+export type AppType = {
+	name: string
+	urlTo: string
+	backgroundImageURL: string
+}

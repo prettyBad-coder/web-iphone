@@ -7,7 +7,7 @@
 	color: white;
 
 	&__stories-slider {
-		padding-top: 15px !important;
+		padding-top: 3px !important;
 		padding-left: 25px !important;
 	}
 
@@ -16,7 +16,10 @@
 	}
 
 	&__page-wrapper {
-		padding-top: 15px;
-		height: $instagram-screen-height;
+		padding-top: 7px;
+		height: 445px;
+		gap: 15px;
+		display: flex;
+		flex-direction: column;
 	}
 }

@@ -12,7 +12,7 @@ const InstagramProfile = () => {
 			{
 				currentUser !== null
 					&&
-					<div>
+					<div className="instagram-profile">
 						{ currentUser.userName }
 					</div>
 			}

@@ -7,6 +7,8 @@ import { Pagination } from "swiper";
 import "swiper/scss";
 import 'swiper/scss/pagination';
 import HomeScreenApplication from "app/components/HomeScreen/HomeScreenApplication.component";
+import apps from "app/data/apps.json";
+
 const HomeScreen = () => {
 
 	return (
@@ -22,11 +24,9 @@ const HomeScreen = () => {
 		>
 			<SwiperSlide>
 				<div className="home-screen__applications-wrapper">
-					<HomeScreenApplication
-						name="Instagram"
-						urlTo="/instagram"
-						backgroundImageURL="https://seeklogo.com/images/I/instagram-logo-3EDAAFAF47-seeklogo.com.png"
-					/>
+					{
+						apps.map(app => <HomeScreenApplication app={ app }/>)
+					}
 				</div>
 			</SwiperSlide>
 			<SwiperSlide>

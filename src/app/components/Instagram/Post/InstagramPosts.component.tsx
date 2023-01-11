@@ -1,4 +1,4 @@
-import InstagramPost from "app/components/Instagram/InstagramPost.component";
+import InstagramPost from "app/components/Instagram/Post/InstagramPost.component";
 import "swiper/scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import posts from "app/data/instagram-posts.json";
@@ -14,15 +14,7 @@ const InstagramPosts = () =>
 			{
 				posts.map(post =>
 					<SwiperSlide key={ post.id } className="instagram-post__post-slide">
-						<InstagramPost
-							name={ post.userName }
-							imageURL={ post.imageURL }
-							likesCount={ post.likesCount }
-							profileImageURL={ post.profileImageURL }
-							localization={ post.localization }
-							title={ post.title }
-							comments={ post.comments }
-						/>
+						<InstagramPost post={ post }/>
 					</SwiperSlide>)
 			}
 		</Swiper>

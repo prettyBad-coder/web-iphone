@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
+import { AppType } from "app/types";
 
 type Props = {
-	name: string
-	urlTo: string
-	backgroundImageURL: string
+	app: AppType
 }
 
 const HomeScreenApplication = (props: Props) => {
 
 	const {
-		name,
-		urlTo,
-		backgroundImageURL,
+		app: {
+			name,
+			urlTo,
+			backgroundImageURL,
+		}
 	} = props;
 
 	return (

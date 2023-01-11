@@ -13,12 +13,27 @@
 		padding: 0 10px;
 	}
 
+	&__profile-image-wrapper {
+		position: relative;
+		height: 34px;
+		width: 34px;
+		border-radius: 50%;
+
+		&--active {
+			background: rgb(253,188,123);
+			background: linear-gradient(45deg, rgba(253,188,123,1) 0%, rgba(191,43,169,1) 46%, rgba(40,90,235,1) 90%);
+		}
+	}
+
 	&__profile-image {
 		height: 30px;
 		width: 30px;
 		background-position: center;
-		background-size: 100%;
+		background-size: cover;
 		border-radius: 50%;
+		position: absolute;
+		top: 2px;
+		left: 2px;
 	}
 
 	&__name-and-localization {

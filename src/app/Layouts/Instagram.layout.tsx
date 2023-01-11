@@ -1,4 +1,4 @@
-import InstagramStory from "app/components/Instagram/InstagramStory.component";
+import InstagramStory from "app/components/Instagram/Story/InstagramStory.component";
 import InstagramHeader from "app/components/Instagram/InstagramHeader.component";
 import InstagramFooter from "app/components/Instagram/InstagramFooter.component";
 import { SwiperSlide, Swiper } from "swiper/react";

@@ -12,7 +12,7 @@ const InstagramStories = () =>
 		>
 			{
 				stories.map(story =>
-					<SwiperSlide>
+					<SwiperSlide key={ story.id }>
 						<InstagramStory story={ story as unknown as InstagramStoryType }/>
 					</SwiperSlide>
 				)

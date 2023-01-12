@@ -25,7 +25,7 @@ const HomeScreen = () => {
 			<SwiperSlide>
 				<div className="home-screen__applications-wrapper">
 					{
-						apps.map(app => <HomeScreenApplication app={ app }/>)
+						apps.map(app => <HomeScreenApplication key={ app.id } app={ app }/>)
 					}
 				</div>
 			</SwiperSlide>

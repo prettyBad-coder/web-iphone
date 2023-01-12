@@ -1,7 +1,5 @@
 import { PropsWithChildren } from "react";
 import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { instagramTabIndexUrlDictionary } from "app/dictionaries";
 import { Link } from "react-router-dom";
 import { InstagramTab } from "app/enums";

@@ -36,7 +36,7 @@ function App() {
 						<Route path="profile" element={ <InstagramMyProfilePage/> }/>
 						<Route path="profile/:userId" element={ <InstagramProfile/> }/>
 					</Route>
-					<Route path="story/:storyId">
+					<Route path="story/:storyId/:userStoryIndex">
 						<Route index element={ <InstagramStoryScreen/> }/>
 						<Route path="single" element={ <InstagramStoryScreen single/> }/>
 					</Route>

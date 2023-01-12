@@ -9,59 +9,93 @@ type Props = {
 
 const InstagramStoryScreen = ({ single = false }: Props) => {
 
-	const { storyId = 0 } = useParams();
+	const { storyId = 0, userStoryIndex = 0 } = useParams();
 
-	const activeStories = stories.filter(story => story.images.length !== 0).sort((a, b) => +a.id - +b.id);
-	const currentStory = activeStories.find(story => +story.id === +storyId) ?? null;
+	const activeGlobalStories = stories.filter(story => story.images.length !== 0).sort((a, b) => +a.id - +b.id);
+	const currentUserStories = activeGlobalStories.find(story => +story.id === +storyId) ?? null;
 
-	const lastStoryId = activeStories[ activeStories.length - 1 ].id;
-	const firstStoryId = activeStories[ 0 ].id;
+
+	const lastGlobalStoryId = activeGlobalStories[ activeGlobalStories.length - 1 ].id;
+	const firstGlobalStoryId = activeGlobalStories[ 0 ].id;
 
 	const navigate = useNavigate();
 
 	const onNextStory = () => {
-		if (currentStory === null) return;
+		if (currentUserStories === null) return;
 		if (single) navigate(-1);
-		if (+storyId + 1 > lastStoryId) {
+		if (currentUserStories.images.length > 1) {
+			if ((+userStoryIndex + 1) < currentUserStories.images.length) {
+				navigate(`/instagram/story/${ currentUserStories.id }/${ +userStoryIndex + 1 }`);
+				return;
+			}
+		}
+		if (+storyId + 1 > lastGlobalStoryId) {
 			navigate("/instagram");
 			return;
 		}
-		const currentStoryIndexInActiveStories = activeStories.findIndex(story => +story.id === +currentStory.id);
-		navigate(`/instagram/story/${ activeStories[ currentStoryIndexInActiveStories + 1 ].id }`);
+		const currentStoryIndexInActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
+		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInActiveStories + 1 ].id }`);
 	};
 
 	const onPrevStory = () => {
-		if (currentStory === null || single) return;
-		if (+storyId - 1 < firstStoryId) {
+		if (currentUserStories === null || single) return;
+		if (+storyId - 1 < firstGlobalStoryId) {
 			navigate("/instagram");
 			return;
 		}
-		const currentStoryIndexInActiveStories = activeStories.findIndex(story => +story.id === +currentStory.id);
-		navigate(`/instagram/story/${ activeStories[ currentStoryIndexInActiveStories - 1 ].id }`);
+		if (+userStoryIndex > 0) {
+			navigate(`/instagram/story/${ currentUserStories.id }/${ +userStoryIndex - 1 }`);
+			return;
+		}
+		const currentStoryIndexInActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
+		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInActiveStories - 1 ].id }`);
 	};
+
+	console.log(
+		Array(currentUserStories?.images.length).fill(0).map((_, index) =>
+			index === +userStoryIndex
+				?
+				<div className="instagram-story-screen__time-line instagram-story-screen__time-line--active"></div>
+				:
+				<div className="instagram-story-screen__time-line"></div>
+		)
+	);
 
 	return (
 		<>
 			{
-				currentStory !== null
+				currentUserStories !== null
 					&&
 					<div className="instagram-story-screen">
 						<div
 							className="instagram-story-screen__content"
-							style={ { backgroundImage: `url(${ currentStory.images[ 0 ] })` } }
+							style={ { backgroundImage: `url(${ currentUserStories.images[ +userStoryIndex ] })` } }
 						>
 							<div className="instagram-story-screen__left-click" onClick={ onPrevStory }></div>
 							<div className="instagram-story-screen__right-click" onClick={ onNextStory }></div>
 							<div className="instagram-story-screen__header">
-								<div className="instagram-story-screen__time-line"></div>
+								<div
+									className="instagram-story-screen__time-lines-wrapper"
+                                    style={ { gridTemplateColumns: currentUserStories.images.map(_ => `1fr`).join(" ") } }
+								>
+									{
+										Array(currentUserStories.images.length).fill(0).map((_, index) =>
+											index <= +userStoryIndex
+												?
+												<div className="instagram-story-screen__time-line instagram-story-screen__time-line--active"></div>
+												:
+												<div className="instagram-story-screen__time-line"></div>
+										)
+									}
+								</div>
 								<div className="instagram-story-screen__header-body">
 									<div className="instagram-story-screen__header-user-data">
 										<div
 											className="instagram-story-screen__user-image"
-											style={ { backgroundImage: `url(${ currentStory.backgroundImageURL })` } }
+											style={ { backgroundImage: `url(${ currentUserStories.backgroundImageURL })` } }
 										></div>
 										<div className="instagram-story-screen__user-name">
-											{ currentStory.name }
+											{ currentUserStories.name }
 										</div>
 									</div>
 									<FontAwesomeIcon

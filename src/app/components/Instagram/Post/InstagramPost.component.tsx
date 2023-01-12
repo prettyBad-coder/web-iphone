@@ -37,7 +37,7 @@ const InstagramPost = (props: Props) => {
 	const onAvatarClick = (e: MouseEvent<HTMLDivElement>) => {
 		if (user === null || user?.storyId === null) return;
 		e.stopPropagation();
-		navigate(`/instagram/story/${ user.storyId }/single`);
+		navigate(`/instagram/single-story/${ user.storyId }/0`);
 	}
 
 	return (

@@ -12,6 +12,7 @@ import InstagramSearch from "app/components/Instagram/Pages/InstagramSearch.comp
 import InstagramStoryScreen from "app/components/Instagram/Story/InstagramStoryScreen.component";
 import SettingsLayout from "app/Layouts/Settings.layout";
 import InstagramProfile from "app/components/Instagram/Profile/InstagramProfile.component";
+import InstagramSingleStoryScreen from "app/components/Instagram/Story/InstagramSingleStoryScreen.component";
 
 function App() {
 	return (
@@ -36,11 +37,8 @@ function App() {
 						<Route path="profile" element={ <InstagramMyProfilePage/> }/>
 						<Route path="profile/:userId" element={ <InstagramProfile/> }/>
 					</Route>
-					<Route path="story/:storyId/:userStoryIndex">
-						<Route index element={ <InstagramStoryScreen/> }/>
-						<Route path="single" element={ <InstagramStoryScreen single/> }/>
-					</Route>
-					<Route path="story/:storyId" element={ <InstagramStoryScreen/> }/>
+					<Route path="story/:storyId/:userStoryIndex" element={ <InstagramStoryScreen/> }/>
+					<Route path="single-story/:storyId/:userStoryIndex" element={ <InstagramSingleStoryScreen/> }/>
 				</Route>
 				<Route path="settings" element={ <SettingsLayout/> }/>
 				<Route path="*" element={ <div>404</div> }/>

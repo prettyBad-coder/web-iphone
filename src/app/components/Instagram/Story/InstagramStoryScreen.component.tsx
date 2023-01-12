@@ -1,14 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import stories from "app/data/intagram-stories.json";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import InstagramStoryScreenLine from "app/components/Instagram/Story/InstagramStoryScreenLine.component";
+import InstagramStoryContent from "app/components/Instagram/Story/InstagramStoryContent.component";
+import { InstagramStoryType } from "app/types/instagram.types";
 
-type Props = {
-	single?: boolean
-}
-
-const InstagramStoryScreen = ({ single = false }: Props) => {
+const InstagramStoryScreen = () => {
 
 	const { storyId = 0, userStoryIndex = 0 } = useParams();
 
@@ -23,7 +18,6 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 
 	const onNextStory = () => {
 		if (currentUserStories === null) return;
-		if (single) navigate(-1);
 
 		//Current story has nested stories
 		if (currentUserStories.images.length > 1) {
@@ -41,7 +35,7 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 	};
 
 	const onPrevStory = () => {
-		if (currentUserStories === null || single) return;
+		if (currentUserStories === null) return;
 		if (+storyId - 1 < firstGlobalStoryId) {
 			navigate("/instagram");
 			return;
@@ -72,44 +66,12 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 			{
 				currentUserStories !== null
 					&&
-					<div className="instagram-story-screen">
-						<div
-							className="instagram-story-screen__content"
-							style={ { backgroundImage: `url(${ currentUserStories.images[ +userStoryIndex ] })` } }
-						>
-							<div className="instagram-story-screen__left-click" onClick={ onPrevStory }></div>
-							<div className="instagram-story-screen__right-click" onClick={ onNextStory }></div>
-							<div className="instagram-story-screen__header">
-								<div
-									className="instagram-story-screen__time-lines-wrapper"
-                                    style={ { gridTemplateColumns: currentUserStories.images.map(_ => `1fr`).join(" ") } }
-								>
-									{
-										Array(currentUserStories.images.length)
-											.fill(0)
-											.map((_, index) => <InstagramStoryScreenLine key={ index } isActive={ index <= +userStoryIndex }/>)
-									}
-								</div>
-								<div className="instagram-story-screen__header-body">
-									<div className="instagram-story-screen__header-user-data">
-										<div
-											className="instagram-story-screen__user-image"
-											style={ { backgroundImage: `url(${ currentUserStories.backgroundImageURL })` } }
-										></div>
-										<div className="instagram-story-screen__user-name">
-											{ currentUserStories.name }
-										</div>
-									</div>
-									<FontAwesomeIcon
-										icon={ faXmark }
-										color="white"
-										onClick={ () => navigate("/instagram") }
-										className="cursor-pointer"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
+					<InstagramStoryContent
+						stories={ currentUserStories as unknown as InstagramStoryType }
+						nestedStoryIndex={ +userStoryIndex }
+						onPrevStory={ onPrevStory }
+						onNextStory={ onNextStory }
+					/>
 			}
 		</>
 	);

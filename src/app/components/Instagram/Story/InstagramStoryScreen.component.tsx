@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import stories from "app/data/intagram-stories.json";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import InstagramStoryScreenLine from "app/components/Instagram/Story/InstagramStoryScreenLine.component";
 
 type Props = {
 	single?: boolean
@@ -23,6 +24,8 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 	const onNextStory = () => {
 		if (currentUserStories === null) return;
 		if (single) navigate(-1);
+
+		//Current story has nested stories
 		if (currentUserStories.images.length > 1) {
 			if ((+userStoryIndex + 1) < currentUserStories.images.length) {
 				navigate(`/instagram/story/${ currentUserStories.id }/${ +userStoryIndex + 1 }`);
@@ -33,8 +36,8 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 			navigate("/instagram");
 			return;
 		}
-		const currentStoryIndexInActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
-		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInActiveStories + 1 ].id }`);
+		const currentStoryIndexInGlobalActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
+		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInGlobalActiveStories + 1 ].id }`);
 	};
 
 	const onPrevStory = () => {
@@ -43,23 +46,26 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
 			navigate("/instagram");
 			return;
 		}
+
+		const currentStoryIndexInGlobalActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
+
+		//Check if user is on first of his stories
+		if (+userStoryIndex === 0) {
+			//Check if next story has nested stories
+			if (activeGlobalStories[ currentStoryIndexInGlobalActiveStories - 1 ].images.length > 0) {
+				const nextStoryPage = activeGlobalStories[ currentStoryIndexInGlobalActiveStories - 1 ];
+				navigate(`/instagram/story/${ nextStoryPage.id }/${ nextStoryPage.images.length - 1 }`);
+				return;
+			}
+		}
+
+		//Check if user has any previous nested stories
 		if (+userStoryIndex > 0) {
 			navigate(`/instagram/story/${ currentUserStories.id }/${ +userStoryIndex - 1 }`);
 			return;
 		}
-		const currentStoryIndexInActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
-		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInActiveStories - 1 ].id }`);
+		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInGlobalActiveStories - 1 ].id }`);
 	};
-
-	console.log(
-		Array(currentUserStories?.images.length).fill(0).map((_, index) =>
-			index === +userStoryIndex
-				?
-				<div className="instagram-story-screen__time-line instagram-story-screen__time-line--active"></div>
-				:
-				<div className="instagram-story-screen__time-line"></div>
-		)
-	);
 
 	return (
 		<>
@@ -79,13 +85,9 @@ const InstagramStoryScreen = ({ single = false }: Props) => {
                                     style={ { gridTemplateColumns: currentUserStories.images.map(_ => `1fr`).join(" ") } }
 								>
 									{
-										Array(currentUserStories.images.length).fill(0).map((_, index) =>
-											index <= +userStoryIndex
-												?
-												<div className="instagram-story-screen__time-line instagram-story-screen__time-line--active"></div>
-												:
-												<div className="instagram-story-screen__time-line"></div>
-										)
+										Array(currentUserStories.images.length)
+											.fill(0)
+											.map((_, index) => <InstagramStoryScreenLine key={ index } isActive={ index <= +userStoryIndex }/>)
 									}
 								</div>
 								<div className="instagram-story-screen__header-body">

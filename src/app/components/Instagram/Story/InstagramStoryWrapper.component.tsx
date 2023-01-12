@@ -11,7 +11,7 @@ const InstagramStoryWrapper = ({ isActive, storyId, children, className = "" }: 
 	isActive
 		?
 		<Link
-			to={ `/instagram/story/${ storyId }` }
+			to={ `/instagram/story/${ storyId }/0` }
 			className={ className }
 		>
 			{ children }

@@ -31,7 +31,7 @@ const InstagramStoryScreen = () => {
 			return;
 		}
 		const currentStoryIndexInGlobalActiveStories = activeGlobalStories.findIndex(story => +story.id === +currentUserStories.id);
-		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInGlobalActiveStories + 1 ].id }`);
+		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInGlobalActiveStories + 1 ].id }/0`);
 	};
 
 	const onPrevStory = () => {
@@ -58,7 +58,7 @@ const InstagramStoryScreen = () => {
 			navigate(`/instagram/story/${ currentUserStories.id }/${ +userStoryIndex - 1 }`);
 			return;
 		}
-		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInGlobalActiveStories - 1 ].id }`);
+		navigate(`/instagram/story/${ activeGlobalStories[ currentStoryIndexInGlobalActiveStories - 1 ].id }/0`);
 	};
 
 	return (

@@ -38,7 +38,13 @@ const InstagramStoryContent = (props: Props) => {
 						{
 							Array(stories.images.length)
 								.fill(0)
-								.map((_, index) => <InstagramStoryScreenLine key={ index } isActive={ index <= nestedStoryIndex }/>)
+								.map((_, index) =>
+									<InstagramStoryScreenLine
+										key={ index }
+										index={ index }
+										nestedStoryIndex={ nestedStoryIndex }
+									/>
+								)
 						}
 					</div>
 					<div className="instagram-story-screen__header-body">

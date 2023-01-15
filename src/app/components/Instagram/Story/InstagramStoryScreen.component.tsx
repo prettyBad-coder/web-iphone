@@ -5,7 +5,7 @@ import { InstagramStoryType } from "app/types/instagram.types";
 
 const InstagramStoryScreen = () => {
 
-	const { storyId = 0, userStoryIndex = 0 } = useParams();
+	const { storyId = "0", userStoryIndex = "0" } = useParams();
 
 	const activeGlobalStories = stories.filter(story => story.images.length !== 0).sort((a, b) => +a.id - +b.id);
 	const currentUserStories = activeGlobalStories.find(story => +story.id === +storyId) ?? null;

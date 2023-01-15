@@ -1,11 +1,22 @@
+import classNames from "classnames";
 
 type Props = {
-	isActive: boolean
+	index: number
+	nestedStoryIndex: number
 }
 
-const InstagramStoryScreenLine = ({ isActive }: Props) => {
-	const baseCssClass = "instagram-story-screen__time-line";
-	return isActive ? <div className={ `${ baseCssClass } ${ baseCssClass }--active` }></div> : <div className={ baseCssClass }></div>;
+const InstagramStoryScreenLine = (props: Props) => {
+
+	const {
+		index,
+		nestedStoryIndex,
+	} = props;
+
+	return (
+		<div className={ classNames("instagram-story-screen__time-line", { "instagram-story-screen__time-line--active": index < nestedStoryIndex }) }>
+			<div className={ classNames("instagram-story-screen__time-line-inner", { "instagram-story-screen__time-line-inner--active": index === nestedStoryIndex }) }></div>
+		</div>
+	);
 }
 
 export default InstagramStoryScreenLine;

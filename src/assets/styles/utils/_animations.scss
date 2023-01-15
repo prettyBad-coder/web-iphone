@@ -22,3 +22,13 @@
 	80% { -o-transform: translate(8px); }
 	100% { -o-origin-transform: translate(0px); }
 }
+
+@keyframes instagram-story-animation {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}

@@ -71,9 +71,9 @@ const InstagramPost = (props: Props) => {
 			<div className="instagram-post__footer">
 				<div className="instagram-post__footer-top">
 					<div className="instagram-post__footer-icons-wrapper">
-						<FontAwesomeIcon icon={ faHeart } color="white"/>
-						<FontAwesomeIcon icon={ faComment } color="white"/>
-						<FontAwesomeIcon icon={ faPaperPlane } color="white"/>
+						<FontAwesomeIcon icon={ faHeart } color="white" className="cursor-pointer"/>
+						<FontAwesomeIcon icon={ faComment } color="white" className="cursor-pointer"/>
+						<FontAwesomeIcon icon={ faPaperPlane } color="white" className="cursor-pointer"/>
 					</div>
 					<div className="instagram-post__footer-save-post">
 						<FontAwesomeIcon icon={ faBookmark } color="white"/>

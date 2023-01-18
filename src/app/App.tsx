@@ -7,12 +7,15 @@ import InstagramLayout from "app/Layouts/Instagram.layout";
 import InstagramPosts from "app/components/Instagram/Post/InstagramPosts.component";
 import InstagramReels from "app/components/Instagram/Pages/InstagramReels.component";
 import InstagramShop from "app/components/Instagram/Pages/InstagramShop.component";
-import InstagramMyProfilePage from "app/components/Instagram/Pages/InstagramMyProfilePage.component";
+import InstagramProfilePage from "app/components/Instagram/Pages/InstagramProfilePage.component";
 import InstagramSearch from "app/components/Instagram/Pages/InstagramSearch.component";
 import InstagramStoryScreen from "app/components/Instagram/Story/InstagramStoryScreen.component";
 import SettingsLayout from "app/Layouts/Settings.layout";
-import InstagramProfile from "app/components/Instagram/Profile/InstagramProfile.component";
+import InstagramProfile from "app/Layouts/InstagramProfile.layout";
 import InstagramSingleStoryScreen from "app/components/Instagram/Story/InstagramSingleStoryScreen.component";
+import InstagramProfilePosts from "app/components/Instagram/Profile/InstagramProfilePosts.component";
+import InstagramProfileReels from "app/components/Instagram/Profile/InstagramProfileReels.component";
+import InstagramProfileMentions from "app/components/Instagram/Profile/InstagramProfileMentions.component";
 
 function App() {
 	return (
@@ -34,8 +37,12 @@ function App() {
 						<Route path="search" element={ <InstagramSearch/> }/>
 						<Route path="reels" element={ <InstagramReels/> }/>
 						<Route path="shop" element={ <InstagramShop/> }/>
-						<Route path="profile" element={ <InstagramMyProfilePage/> }/>
-						<Route path="profile/:userId" element={ <InstagramProfile/> }/>
+						<Route path="profile" element={ <InstagramProfilePage/> }/>
+					</Route>
+					<Route path="profile/:userId" element={ <InstagramProfile/> }>
+						<Route index element={ <InstagramProfilePosts/> }/>
+						<Route path="reels" element={ <InstagramProfileReels/> }/>
+						<Route path="mentions" element={ <InstagramProfileMentions/> }/>
 					</Route>
 					<Route path="story/:storyId/:userStoryIndex" element={ <InstagramStoryScreen/> }/>
 					<Route path="single-story/:storyId/:userStoryIndex" element={ <InstagramSingleStoryScreen/> }/>

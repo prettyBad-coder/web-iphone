@@ -1,0 +1,99 @@
+.instagram-profile-layout {
+	display: flex;
+	flex-direction: column;
+	background-color: black;
+	height: calc(100% - ($notch-height / 2));
+	color: white;
+
+	&__page-header {
+		height: 40px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: 10px 10px 0 10px;
+	}
+
+	&__user-name {
+		font-size: 1rem;
+	}
+
+	&__page-header-right {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__profile-header {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__header-top {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 10px;
+		align-items: center;
+	}
+
+	&__profile-picture-wrapper {
+		height: 64px;
+		width: 64px;
+		position: relative;
+		
+		&--active {
+			background: rgb(253,188,123);
+			background: linear-gradient(45deg, rgba(253,188,123,1) 0%, rgba(191,43,169,1) 46%, rgba(40,90,235,1) 90%);
+		}
+	}
+
+	&__profile-picture {
+		height: 60px;
+		width: 60px;
+		border-radius: 50%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: absolute;
+	}
+
+	&__user-data {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__user-data-item {
+		text-align: center;
+	}
+
+	&__user-data-value {
+		font-size: 12px;
+	}
+
+	&__user-data-title {
+		font-size: 10px;
+		color: $grey;
+	}
+
+	&__profile-description {
+
+	}
+
+	&__buttons {
+
+	}
+
+	&__button {
+
+	}
+
+	&__content {
+
+	}
+
+	&__tabs {
+
+	}
+
+	&__tab {
+
+	}
+}

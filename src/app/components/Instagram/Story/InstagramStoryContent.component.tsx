@@ -61,7 +61,7 @@ const InstagramStoryContent = (props: Props) => {
 							icon={ faXmark }
 							color="white"
 							onClick={ () => navigate("/instagram") }
-							className="cursor-pointer"
+							className="instagram-story-screen__x-icon cursor-pointer"
 						/>
 					</div>
 				</div>

@@ -1,4 +1,4 @@
-const InstagramMyProfilePage = () => {
+const InstagramProfilePage = () => {
 
 	return (
 		<div className="instagram-profile-page">
@@ -7,4 +7,4 @@ const InstagramMyProfilePage = () => {
 	)
 }
 
-export default InstagramMyProfilePage;
+export default InstagramProfilePage;

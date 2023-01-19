@@ -2,10 +2,11 @@ import InstagramStoryScreenLine from "app/components/Instagram/Story/InstagramSt
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InstagramStoryType } from "app/types/instagram.types";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 type Props = {
-	stories: InstagramStoryType,
+	story: InstagramStoryType,
 	nestedStoryIndex: number
 	onPrevStory: () => void
 	onNextStory: () => void
@@ -14,35 +15,46 @@ type Props = {
 const InstagramStoryContent = (props: Props) => {
 	
 	const {
-		stories,
+		story,
 		nestedStoryIndex,
 		onPrevStory,
 		onNextStory,
 	} = props;
 
+	const storyAnimationDuration = 4;
+
 	const navigate = useNavigate();
 
+	const location = useLocation();
+
+	const nextStoryTimeout = setTimeout(() => onNextStory(), storyAnimationDuration * 1000);
+
+	useEffect(() => {
+		return () => clearTimeout(nextStoryTimeout);
+	}, [ location ]);
+
 	return (
-		<div className="instagram-story-screen">
+		<div className="instagram-story-screen application">
 			<div
 				className="instagram-story-screen__content"
-				style={ { backgroundImage: `url(${ stories.images[ nestedStoryIndex ] })` } }
+				style={ { backgroundImage: `url(${ story.images[ nestedStoryIndex ] })` } }
 			>
 				<div className="instagram-story-screen__left-click" onClick={ onPrevStory }></div>
 				<div className="instagram-story-screen__right-click" onClick={ onNextStory }></div>
 				<div className="instagram-story-screen__header">
 					<div
 						className="instagram-story-screen__time-lines-wrapper"
-						style={ { gridTemplateColumns: stories.images.map(_ => `1fr`).join(" ") } }
+						style={ { gridTemplateColumns: story.images.map(_ => `1fr`).join(" ") } }
 					>
 						{
-							Array(stories.images.length)
+							Array(story.images.length)
 								.fill(0)
 								.map((_, index) =>
 									<InstagramStoryScreenLine
 										key={ index }
 										index={ index }
 										nestedStoryIndex={ nestedStoryIndex }
+										storyAnimationDuration={ storyAnimationDuration }
 									/>
 								)
 						}
@@ -51,10 +63,10 @@ const InstagramStoryContent = (props: Props) => {
 						<div className="instagram-story-screen__header-user-data">
 							<div
 								className="instagram-story-screen__user-image"
-								style={ { backgroundImage: `url(${ stories.backgroundImageURL })` } }
+								style={ { backgroundImage: `url(${ story.backgroundImageURL })` } }
 							></div>
 							<div className="instagram-story-screen__user-name">
-								{ stories.name }
+								{ story.name }
 							</div>
 						</div>
 						<FontAwesomeIcon

@@ -31,7 +31,7 @@ const InstagramSingleStoryScreen = () => {
 				currentUserStory !== null
 					&&
 					<InstagramStoryContent
-						stories={ currentUserStory as unknown as InstagramStoryType }
+						story={ currentUserStory as unknown as InstagramStoryType }
 						nestedStoryIndex={ +userStoryIndex }
 						onPrevStory={ onPrevStory }
 						onNextStory={ onNextStory }

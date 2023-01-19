@@ -3,13 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InstagramStoryType } from "app/types/instagram.types";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 type Props = {
 	story: InstagramStoryType,
 	nestedStoryIndex: number
 	onPrevStory: () => void
 	onNextStory: () => void
+}
+
+export enum AnimationPlayState {
+	running = "running",
+	paused = "paused",
 }
 
 const InstagramStoryContent = (props: Props) => {
@@ -21,6 +26,8 @@ const InstagramStoryContent = (props: Props) => {
 		onNextStory,
 	} = props;
 
+	const [ animationPlayState, setAnimationPlayState ] = useState(AnimationPlayState.running)
+
 	const storyAnimationDuration = 4;
 
 	const navigate = useNavigate();
@@ -28,6 +35,18 @@ const InstagramStoryContent = (props: Props) => {
 	const location = useLocation();
 
 	const nextStoryTimeout = setTimeout(() => onNextStory(), storyAnimationDuration * 1000);
+
+	const onStoryHoldIn = (e: MouseEvent<HTMLDivElement>) => {
+		e.stopPropagation();
+		setAnimationPlayState(AnimationPlayState.paused);
+		console.log("down");
+	};
+
+	const onStoryHoldOut = (e: MouseEvent<HTMLDivElement>) => {
+		e.stopPropagation();
+		setAnimationPlayState(AnimationPlayState.running);
+		console.log("up");
+	};
 
 	useEffect(() => {
 		return () => clearTimeout(nextStoryTimeout);
@@ -39,8 +58,8 @@ const InstagramStoryContent = (props: Props) => {
 				className="instagram-story-screen__content"
 				style={ { backgroundImage: `url(${ story.images[ nestedStoryIndex ] })` } }
 			>
-				<div className="instagram-story-screen__left-click" onClick={ onPrevStory }></div>
-				<div className="instagram-story-screen__right-click" onClick={ onNextStory }></div>
+				<div className="instagram-story-screen__left-click" onClick={ onPrevStory } onMouseDown={ onStoryHoldIn } onMouseUp={ onStoryHoldOut }></div>
+				<div className="instagram-story-screen__right-click" onClick={ onNextStory } onMouseDown={ onStoryHoldIn } onMouseUp={ onStoryHoldOut }></div>
 				<div className="instagram-story-screen__header">
 					<div
 						className="instagram-story-screen__time-lines-wrapper"
@@ -55,6 +74,7 @@ const InstagramStoryContent = (props: Props) => {
 										index={ index }
 										nestedStoryIndex={ nestedStoryIndex }
 										storyAnimationDuration={ storyAnimationDuration }
+										animationPlayState={ animationPlayState }
 									/>
 								)
 						}

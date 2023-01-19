@@ -52,5 +52,17 @@
         "images": [
             "https://wallpapers.com/images/featured/4co57dtwk64fb7lv.jpg"
         ]
+    },
+    {
+        "id": 7,
+        "name": "Sample Instagram User",
+        "plusIcon": false,
+        "backgroundImageURL": "http://store-images.s-microsoft.com/image/apps.31997.13510798887167234.6cd52261-a276-49cf-9b6b-9ef8491fb799.30e70ce4-33c5-43d6-9af1-491fe4679377",
+        "images": [
+            "https://thumbs.dreamstime.com/b/fernjungle-186848087.jpg",
+            "https://i.pinimg.com/originals/77/8d/dc/778ddc57567faf40fd2c22c290f5304a.jpg",
+            "https://wallpapershome.com/images/wallpapers/polygon-1440x2560-4k-5k-wallpaper-landscape-nature-low-poly-238.jpg",
+            "https://img.redro.pl/plakaty/low-poly-tropical-landscape-beautiful-jungle-with-vines-and-dense-ferns-vertical-vector-illustration-700-222801189.jpg"
+        ]
     }
 ]

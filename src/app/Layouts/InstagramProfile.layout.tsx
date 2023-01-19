@@ -1,4 +1,4 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import users from "app/data/instagram-users.json";
 import InstagramProfileUserDataItem from "app/components/Instagram/Profile/InstagramProfileUserDataItem.component";
 import InstagramProfileTab from "app/components/Instagram/Profile/InstagramProfileTab.component";
@@ -12,14 +12,21 @@ const InstagramProfileLayout = () => {
 
 	const currentUser = users.find(user => +userId === user.id) ?? null;
 
+	const navigate = useNavigate();
+
 	return (
 		<>
 			{
 				currentUser !== null
 					&&
-					<div className="instagram-profile-layout">
+					<div className="instagram-profile-layout application">
 						<div className="instagram-profile-layout__page-header">
-                            <FontAwesomeIcon icon={ faChevronLeft } color="white" className="cursor-pointer"/>
+                            <FontAwesomeIcon
+								icon={ faChevronLeft }
+								color="white"
+								className="cursor-pointer"
+								onClick={ () => navigate(-1) }
+							/>
 							<div className="instagram-profile-layout__user-name">
 								{ currentUser.userName }
 							</div>

@@ -1,6 +1,6 @@
 const SettingsLayout = () => {
 	return (
-		<div className="settings-layout">
+		<div className="settings-layout application">
 			Settings
 		</div>
 	)

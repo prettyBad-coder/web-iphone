@@ -4,7 +4,7 @@ import "swiper/scss";
 import { Outlet } from "react-router-dom";
 
 const InstagramLayout = () =>
-	<div className="instagram">
+	<div className="instagram application">
 		<div>
 			<InstagramHeader/>
 		</div>

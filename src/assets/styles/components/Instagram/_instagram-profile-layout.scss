@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 	background-color: black;
-	height: calc(100% - ($notch-height / 2));
 	color: white;
 
 	&__page-header {

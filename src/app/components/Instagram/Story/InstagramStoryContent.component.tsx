@@ -1,9 +1,9 @@
 import InstagramStoryScreenLine from "app/components/Instagram/Story/InstagramStoryScreenLine.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPause, faPlay, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InstagramStoryType } from "app/types/instagram.types";
 import { useLocation, useNavigate } from "react-router-dom";
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Props = {
 	story: InstagramStoryType,
@@ -26,31 +26,71 @@ const InstagramStoryContent = (props: Props) => {
 		onNextStory,
 	} = props;
 
-	const [ animationPlayState, setAnimationPlayState ] = useState(AnimationPlayState.running)
+	const [ animationPlayState, setAnimationPlayState ] = useState(AnimationPlayState.running);
 
-	const storyAnimationDuration = 4;
+	const [ storyAnimationStartMS, setStoryAnimationStartMS ] = useState(+new Date());
+
+	const [ remainingStoryAnimationMS, setRemainingStoryAnimationMS ] = useState(4000);
+
+	const [ prevURL, setPrevURL ] = useState<string | null>(null);
 
 	const navigate = useNavigate();
 
 	const location = useLocation();
 
-	const nextStoryTimeout = setTimeout(() => onNextStory(), storyAnimationDuration * 1000);
+	const nextStoryTimeout = useMemo(() => {
+		if (animationPlayState === AnimationPlayState.paused) return;
 
-	const onStoryHoldIn = (e: MouseEvent<HTMLDivElement>) => {
-		e.stopPropagation();
+		console.log("prevURL", prevURL);
+		console.log("location.pathname", location.pathname);
+
+		//if url doesn't change timeout duration is set to remainingStoryAnimationMS state
+		if (prevURL === location.pathname || prevURL === null) {
+			console.log("path DOEST change");
+			return setTimeout(() => onNextStory(), remainingStoryAnimationMS);
+		}
+
+		// if only url changes then timeout duration is 4000ms;
+		console.log("path change");
+		return setTimeout(() => onNextStory(), 4000);
+	}, [ animationPlayState, prevURL ])
+
+	const onStoryPause = () => {
 		setAnimationPlayState(AnimationPlayState.paused);
-		console.log("down");
+		setRemainingStoryAnimationMS(prevState => prevState - (+new Date() - storyAnimationStartMS));
+		clearTimeout(nextStoryTimeout);
 	};
 
-	const onStoryHoldOut = (e: MouseEvent<HTMLDivElement>) => {
-		e.stopPropagation();
+	const onStoryPlay = () => {
 		setAnimationPlayState(AnimationPlayState.running);
-		console.log("up");
-	};
+		setStoryAnimationStartMS(+new Date());
+	}
+
+	const onPrevStoryClick = () => {
+		onPrevStory();
+		clearTimeout(nextStoryTimeout);
+	}
+
+	const onNextStoryClick = () => {
+		onNextStory();
+		clearTimeout(nextStoryTimeout);
+	}
+
+	const onStoryExit = () => {
+		navigate("/instagram");
+		clearTimeout(nextStoryTimeout);
+	}
+
 
 	useEffect(() => {
-		return () => clearTimeout(nextStoryTimeout);
+		setRemainingStoryAnimationMS(4000);
+		return () => {
+			setPrevURL(location.pathname);
+			clearTimeout(nextStoryTimeout);
+		};
 	}, [ location ]);
+
+	console.log("--------------");
 
 	return (
 		<div className="instagram-story-screen application">
@@ -58,8 +98,8 @@ const InstagramStoryContent = (props: Props) => {
 				className="instagram-story-screen__content"
 				style={ { backgroundImage: `url(${ story.images[ nestedStoryIndex ] })` } }
 			>
-				<div className="instagram-story-screen__left-click" onClick={ onPrevStory } onMouseDown={ onStoryHoldIn } onMouseUp={ onStoryHoldOut }></div>
-				<div className="instagram-story-screen__right-click" onClick={ onNextStory } onMouseDown={ onStoryHoldIn } onMouseUp={ onStoryHoldOut }></div>
+				<div className="instagram-story-screen__left-click" onClick={ onPrevStoryClick }></div>
+				<div className="instagram-story-screen__right-click" onClick={ onNextStoryClick }></div>
 				<div className="instagram-story-screen__header">
 					<div
 						className="instagram-story-screen__time-lines-wrapper"
@@ -73,7 +113,7 @@ const InstagramStoryContent = (props: Props) => {
 										key={ index }
 										index={ index }
 										nestedStoryIndex={ nestedStoryIndex }
-										storyAnimationDuration={ storyAnimationDuration }
+										storyAnimationDuration={ remainingStoryAnimationMS }
 										animationPlayState={ animationPlayState }
 									/>
 								)
@@ -89,12 +129,31 @@ const InstagramStoryContent = (props: Props) => {
 								{ story.name }
 							</div>
 						</div>
-						<FontAwesomeIcon
-							icon={ faXmark }
-							color="white"
-							onClick={ () => navigate("/instagram") }
-							className="instagram-story-screen__x-icon cursor-pointer"
-						/>
+						<div className="instagram-story-screen__header-icons-wrapper">
+							{
+								animationPlayState === AnimationPlayState.running
+									?
+									<FontAwesomeIcon
+										icon={ faPause }
+										onClick={ onStoryPause }
+										color="white"
+										className="cursor-pointer"
+									/>
+									:
+									<FontAwesomeIcon
+										icon={ faPlay }
+										onClick={ onStoryPlay }
+										color="white"
+										className="cursor-pointer"
+									/>
+							}
+							<FontAwesomeIcon
+								icon={ faXmark }
+								color="white"
+								onClick={ onStoryExit }
+								className="cursor-pointer"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

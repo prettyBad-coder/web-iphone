@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useMemo } from "react";
 
 type Props = {
 	index: number
@@ -16,11 +17,13 @@ const InstagramStoryScreenLine = (props: Props) => {
 		animationPlayState,
 	} = props;
 
+	const animationDuration = useMemo(() => storyAnimationDuration, []);
+
 	return (
 		<div className={ classNames("instagram-story-screen__time-line", { "instagram-story-screen__time-line--active": index < nestedStoryIndex }) }>
 			<div
 				className={ classNames("instagram-story-screen__time-line-inner", { "instagram-story-screen__time-line-inner--active": index === nestedStoryIndex }) }
-				style={ { animationDuration: `${ storyAnimationDuration }s`, animationPlayState: animationPlayState } }
+				style={ { animationDuration: `${ 4 }s`, animationPlayState: animationPlayState } }
 			></div>
 		</div>
 	);
